@@ -4,7 +4,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const UserSchema = new mongoose.Schema({
   name: String,
   email: String,
-  image: {type: String},
+  password: String,
   createdForms: []
  }, {timestamps: true});
 
