@@ -6,7 +6,7 @@ const mongoose  = require("mongoose");
 const app = express();
 const cors = require("cors");
 const { MONGO_URL } = require('./config/environment');
-
+const router = require("./routes/router");
 
 //MongoDb connection
 mongoose.connect(MONGO_URL, {socketTimeoutMS: 1000}).then(()=>{console.log("MongoDB is connected")})
@@ -35,5 +35,7 @@ app.get("/", (_, res)=> {
   return res.json({message: "application is running"})
 });
 
+//Api routes
+app.use('/api', router);
 
 module.exports = { app };
