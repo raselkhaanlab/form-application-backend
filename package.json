@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev":"nodemon",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,6 +25,7 @@
     "multer-gridfs-storage": "^5.0.2"
   },
   "devDependencies": {
-    "node-dev": "^8.0.0"
+    "node-dev": "^8.0.0",
+    "nodemon": "^3.1.7"
   }
 }
