@@ -1,17 +1,17 @@
-const router = require('express').Router();
+const router = require('express').Router()
+const {createForm, formsGet, getFormById, deleteForm, editForm, getAllFormsOfUser, allResponses, submitResponse, getResponse} = require('../services/FormService')
 
+router.route("/create").post(createForm);
+router.route("/forms").get(formsGet);
+router.route("/form/:formId").get(getFormById);
+router.route("/deleteform/:formId/:userId").delete(deleteForm);
+router.route("/editform").put(editForm);
+router.route("/getuserforms/:userId").get(getAllFormsOfUser);
 
-router.route("/create").post((_, res)=>res.json("form create"));
-router.route("/forms").get((_, res)=>res.json("forms get"));
-router.route("/form/:formId").get((_, res)=>res.json("form by id"));
-router.route("/deleteform/:formId/:userId").delete((_, res)=>res.json("delete from by id get"));
-router.route("/editform").put((_, res)=>res.json("edit from"));
-router.route("/getuserforms/:userId").get((_, res)=>res.json("get from by user"));
+router.route("/addresponse").post(submitResponse);
+router.route("/responses").get(allResponses);
 
-router.route("/addresponse").post((_, res)=>res.json("add response"));
-router.route("/responses").get((_, res)=>res.json("all responses"));
-
-router.route("/getresponse/:formId").get((_, res)=>res.json("get response by form id"));
+router.route("/getresponse/:formId").get(getResponse);
 
 
 
