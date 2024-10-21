@@ -1,6 +1,7 @@
 const router = require('express').Router();
-
+const UserService = require('../services/UserService')
 router.route("/login")
-.post((_, res)=> res.json("login router"));
+.get(UserService.loginGet)
+.post(UserService.login);
 
 module.exports = router;
