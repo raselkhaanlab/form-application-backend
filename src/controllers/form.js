@@ -44,29 +44,11 @@ module.exports = {
     },
 
     editForm : async(req, res)=>{
-            var  formId =  req.body.formId;
-            var data = {
-                name: req.body.name,
-                description: req.body.description,
-                questions: req.body.questions
-            }
-
+            var  formId =  req.params.formId;
+            var data = req.body;
             await formService.updateFormById(formId, data);
             return res.status(200).json(data);
            
-    },
-
-    getAllFormsOfUser: async(req, res)=>{
-        const userId = req.params.userId;
-        const user = await userService.getUserById(userId);
-        if(!user) {
-            throw new ApiError(403);
-        }
-        if(!Array.isArray(createdForms)) {
-            return res.status(200).json([]);
-        }
-        const forms = formService.getFormsByIds(user.createdForms);
-        return res.status(200).json(forms);   
     },
 
     submitResponse : async(req, res)=> {
