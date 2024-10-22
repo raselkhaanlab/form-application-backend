@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {createForm, formsGet, getFormById, deleteForm, editForm, getAllFormsOfUser, allResponses, submitResponse, getResponse} = require('../services/FormService')
+const {createForm, formsGet, getFormById, deleteForm, editForm, getAllFormsOfUser, allResponses, submitResponse, getResponse} = require('../controllers/form')
 const {validate} = require("../middlewares/validator");
 const formSchemas = require("../validations/formValidation");
 
