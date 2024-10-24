@@ -5,7 +5,7 @@ const isDev = ["development", "dev", "develop"].includes(process.env.NODE_ENV ??
 const errorHandler = (err, _, res, __) => {
   let convertedError = err;
   if(isDev) {
-    // console.error(err);
+    console.error(err);
   }
   if(convertedError instanceof ValidationError) {
     res.message = convertedError.message || "Validation failed";
